@@ -33,6 +33,7 @@ gh api \
 
 ## Directory Structure
 
+```
 template-python/
 ├── .github/
 │   └── workflows/
@@ -62,6 +63,7 @@ template-python/
 ├── cookiecutter.json           # Cookiecutter template variables
 ├── README.md
 └── LICENSE
+```
 
 ## Example Projects Using This Template
 - [`scsilhouette`](https://github.com/NIH-NLM/scsilhouette)
