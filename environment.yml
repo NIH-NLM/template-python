@@ -1,0 +1,8 @@
+# environment.yml
+name: {{ package_slug }}
+dependencies:
+  - python={{ python_version }}
+  - pip
+  - pip:
+      - -e .
+

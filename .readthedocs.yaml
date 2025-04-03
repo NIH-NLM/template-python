@@ -1,0 +1,12 @@
+# .readthedocs.yaml
+version: 2
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "{{ python_version }}"
+python:
+  install:
+    - method: pip
+      path: .
+
+
