@@ -76,11 +76,17 @@ This repository structure was designed by NIH developers for modular bioinformat
 The template was scaffolded with the assistance of ChatGPT Code Copilot.
 
 ### To publish this repository to GitHub:
+
+Start by creating the repository **if it does not yet exist**:
 ```bash
 gh repo create NIH-NLM/template-python --public \
   --description "Reusable Python CLI + container template for bioinformatics tools" \
-  --homepage "https://github.com/NIH-NLM/template-python" --confirm
+  --homepage "https://github.com/NIH-NLM/template-python" \
+  --confirm
+```
 
+Then initialize and push:
+```bash
 git init
 git remote add origin https://github.com/NIH-NLM/template-python.git
 git add .
