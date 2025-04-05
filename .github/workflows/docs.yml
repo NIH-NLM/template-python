@@ -31,7 +31,7 @@ jobs:
           auto-activate-base: false
 
       - name: Install any missing packages (optional)
-        shell: bash -l {0}
+        shell: "bash -l {0}"
         run: |
           conda activate {{cookiecutter.package_slug}}
           python -m pip install myst-parser sphinx
