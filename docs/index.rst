@@ -1,5 +1,5 @@
 # docs/index.rst
-Welcome to {{ project_name }}'s documentation!
+Welcome to {{cookiecutter.package_slug}}'s documentation!
 =============================================
 
 .. toctree::

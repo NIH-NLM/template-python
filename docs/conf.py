@@ -1,5 +1,5 @@
 # docs/conf.py
-project = '{{ project_name }}'
+project = '{{cookiecutter.package_slug}}'
 author = '{{ author }}'
 release = '0.1.0'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon']

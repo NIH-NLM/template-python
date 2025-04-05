@@ -1,4 +1,4 @@
-# {{ project_name }}
+# {{cookiecutter.package_slug}}
 
 A bioinformatics Python package scaffold for reproducible science.
 
@@ -27,7 +27,7 @@ This template includes a workflow to automatically build and publish Docker imag
 gh api \
   -X PATCH \
   -H "Accept: application/vnd.github.v3+json" \
-  /user/packages/container/{{ cookiecutter.package_slug }}/visibility \
+  /user/packages/container/{{cookiecutter.package_slug}}/visibility \
   -f visibility=public
 ```
 
@@ -46,7 +46,7 @@ template-python/
 │   ├── index.rst               # Sphinx docs home
 │   └── Makefile                # Build command
 │
-├── src/{{ package_slug }}/     # Actual package code
+├── src/{{cookiecutter.package_slug}}/     # Actual package code
 │   ├── __init__.py
 │   ├── cli.py                  # CLI commands via Typer
 │   ├── core.py                 # Core functions (placeholder)

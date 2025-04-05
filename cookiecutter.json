@@ -1,10 +1,10 @@
-# cookiecutter.json
+# {{cookiecutter.package_slug}}.json
 {
-  "project_name": "Example Bioinfo Tool",
-  "repo_name": "example-tool",
-  "package_slug": "exampletool",
-  "author": "NIH",
-  "email": "you@nih.gov",
-  "python_version": "3.11"
+    "project_name": "Example Bioinfo Tool",
+    "repo_name": "example-tool",
+    "package_slug": "exampletool",
+    "author": "NIH/NLM",
+    "email": " your email ",
+    "python_version": "3.11"
 }
 
