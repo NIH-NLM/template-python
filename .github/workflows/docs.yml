@@ -1,28 +1,71 @@
-# .github/workflows/docs.yml
-name: Docs
+name: Build and Deploy Sphinx Documentation
+
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-docs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Conda with environment.yml
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          environment-file: environment.yml
+          activate-environment: {{cookiecutter.package_slug}}
+          auto-activate-base: false
+
+      - name: Install any missing packages (optional)
+        shell: bash -l {0}
+        run: |
+          conda activate {{cookiecutter.package_slug}}
+          python -m pip install myst-parser sphinx
+
+      - name: Build HTML docs with Sphinx
+        shell: bash -l {0}
+        run: |
+          conda activate {{cookiecutter.package_slug}}
+          sphinx-apidoc -f --separate -o docs/source/ src/{{cookiecutter.package_slug}}
+          make -C docs html
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/build/html
+
+  # Deploy job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '{{ python_version }}'
-      - name: Install dependencies
-        run: |
-          pip install -e .
-          pip install sphinx sphinx-rtd-theme
-      - name: Build docs
-        run: |
-          sphinx-build -b html docs docs/_build/html
-      - name: Deploy to Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_build/html
-
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
