@@ -9,6 +9,6 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           environment-file: environment.yml
-          activate-environment: {{cookiecutter.package_slug}}
+          activate-environment: "{{cookiecutter.package_slug}}"
       - run: pytest tests/
 
