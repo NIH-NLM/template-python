@@ -1,6 +1,6 @@
 # docs/conf.py
 project = '{{cookiecutter.package_slug}}'
-author = '{{ author }}'
+author = '{{cookiecutter.author}}'
 release = '0.1.0'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon']
 exclude_patterns = []
