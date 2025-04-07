@@ -1,5 +1,3 @@
-# {{ project_name }}
-
 A bioinformatics Python package scaffold for reproducible science.
 
 ## 🚀 Quickstart
@@ -10,6 +8,10 @@ cookiecutter gh:NIH-NLM/template-python
 ```
 
 ### ✅ NIH-NLM Recommended Usage (Security-Aware)
+
+As an example of how to use this repository consider these steps.
+These are all the steps followed to make the nsforest-cli repository with this template-python
+
 If you must create the repository *before* rendering:
 
 1. **Create your GitHub repo manually** in the NIH-NLM org
@@ -82,7 +84,6 @@ gh api \
 ```
 
 ## Example Projects Using This Template
-- [`scsilhouette`](https://github.com/NIH-NLM/scsilhouette)
 - [`nsforest-cli`](https://github.com/NIH-NLM/nsforest-cli)
 
 ---
