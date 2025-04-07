@@ -23,16 +23,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Conda with environment.yml
+      - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          environment-file: environment.yml
-          activate-environment: "{{cookiecutter.package_slug}}"
           auto-activate-base: false
 
-      - name: Install any missing packages (optional)
+      - name: Create and activate environment
         shell: "bash -l {0}"
         run: |
+          conda env create -f environment.yml
           conda activate "{{cookiecutter.package_slug}}"
           python -m pip install myst-parser sphinx
 
@@ -40,7 +39,7 @@ jobs:
         shell: "bash -l {0}"
         run: |
           conda activate "{{cookiecutter.package_slug}}"
-          sphinx-apidoc -f --separate -o docs/source/src/"{{cookiecutter.package_slug}}"
+          sphinx-apidoc -f --separate -o docs/source/ src/{{cookiecutter.package_slug}}
           make -C docs html
 
       - name: Upload artifact for GitHub Pages
@@ -55,7 +54,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{steps.deployment.outputs.page_url}}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
