@@ -1,11 +1,39 @@
-# {{cookiecutter.package_slug}}
+# {{ project_name }}
 
 A bioinformatics Python package scaffold for reproducible science.
 
 ## 🚀 Quickstart
+Render a new Python project with CLI + CI + Docs:
+
 ```bash
 cookiecutter gh:NIH-NLM/template-python
 ```
+
+### ✅ NIH-NLM Recommended Usage (Security-Aware)
+If you must create the repository *before* rendering:
+
+1. **Create your GitHub repo manually** in the NIH-NLM org
+   (e.g. https://github.com/NIH-NLM/nsforest-cli)
+
+2. **Clone it locally**:
+```bash
+git clone https://github.com/NIH-NLM/nsforest-cli.git
+cd nsforest-cli
+```
+
+3. **Render the template into this directory**:
+```bash
+cookiecutter gh:NIH-NLM/template-python --output-dir=.
+```
+
+4. **Commit and push the result**:
+```bash
+git add .
+git commit -m "Initial scaffold from template"
+git push
+```
+
+This supports NIH/NLM security while also working for any public/open-source users.
 
 ## 📦 Features
 - Typer-based CLI
@@ -14,6 +42,14 @@ cookiecutter gh:NIH-NLM/template-python
 - GitHub Actions CI (tests, docs, Docker)
 - Pytest + Conda
 - GitHub Container Registry (GHCR) integration
+
+## ⚠️ Important: Do Not Run CI from This Template Repo
+This repository contains unrendered `{{ cookiecutter.* }}` placeholders.
+GitHub Actions **will fail** if triggered directly.
+
+✅ **Always render first** using Cookiecutter.
+
+---
 
 ## 🐳 GitHub Container Registry (GHCR)
 This template includes a workflow to automatically build and publish Docker images to [GitHub Container Registry (GHCR)](https://github.com/features/packages).
@@ -27,49 +63,12 @@ This template includes a workflow to automatically build and publish Docker imag
 gh api \
   -X PATCH \
   -H "Accept: application/vnd.github.v3+json" \
-  /user/packages/container/{{cookiecutter.package_slug}}/visibility \
+  /user/packages/container/{{ cookiecutter.package_slug }}/visibility \
   -f visibility=public
 ```
 
-## Directory Structure
-
-```
-template-python/
-├── .github/
-│   └── workflows/
-│       ├── test.yml            # Run tests on push
-│       ├── docs.yml            # Auto-build + deploy docs
-│       └── docker.yml          # Optional: Docker image CI/CD
-│
-├── docs/
-│   ├── conf.py                 # Sphinx config
-│   ├── index.rst               # Sphinx docs home
-│   └── Makefile                # Build command
-│
-├── src/{{cookiecutter.package_slug}}/     # Actual package code
-│   ├── __init__.py
-│   ├── cli.py                  # CLI commands via Typer
-│   ├── core.py                 # Core functions (placeholder)
-│   └── utils.py                # Shared logic/utilities
-│
-├── tests/
-│   └── test_cli.py             # Sample pytest CLI test
-│
-├── .readthedocs.yaml           # RTD config
-├── Dockerfile                  # Conda + pip + CLI ready
-├── environment.yml             # Conda environment
-├── pyproject.toml              # Modern Python packaging
-├── setup.cfg                   # Metadata, CLI entry point
-├── cookiecutter.json           # Cookiecutter template variables
-├── README.md
-└── LICENSE
-```
-
 ## Example Projects Using This Template
-- [`scsilhouette`](https://github.com/NIH-NLM/scsilhouette)
-- Upcoming: [`nsforest-cli`](https://github.com/NIH-NLM/nsforest-cli)
-
-This pattern supports reusable tool wrapping for Nextflow and CLI use cases.
+- [`nsforest-cli`](https://github.com/NIH-NLM/nsforest-cli)
 
 ---
 
@@ -78,7 +77,6 @@ This repository structure was designed by NIH developers for modular bioinformat
 The template was scaffolded with the assistance of ChatGPT Code Copilot.
 
 ### To publish this repository to GitHub:
-
 Start by creating the repository **if it does not yet exist**:
 ```bash
 gh repo create NIH-NLM/template-python --public \
@@ -86,7 +84,6 @@ gh repo create NIH-NLM/template-python --public \
   --homepage "https://github.com/NIH-NLM/template-python" \
   --confirm
 ```
-
 Then initialize and push:
 ```bash
 git init
