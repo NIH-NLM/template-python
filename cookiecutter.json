@@ -4,6 +4,7 @@
     "package_slug": "exampletool",
     "author": "NIH/NLM",
     "email": " your email ",
-    "python_version": "3.11"
+    "python_version": "3.11",
+    "render_url": "${{steps.deployment.outputs.page_url}}"
 }
 
