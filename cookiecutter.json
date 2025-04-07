@@ -1,4 +1,3 @@
-# {{cookiecutter.package_slug}}.json
 {
     "project_name": "Example Bioinfo Tool",
     "repo_name": "example-tool",

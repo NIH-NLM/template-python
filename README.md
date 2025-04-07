@@ -33,7 +33,21 @@ git commit -m "Initial scaffold from template"
 git push
 ```
 
-This supports NIH/NLM security while also working for any public/open-source users.
+### 🛠 Cookiecutter Troubleshooting
+If you see this error:
+```
+JSON decoding error while loading '/Users/.../.cookiecutters/template-python/cookiecutter.json'
+```
+You likely have a corrupted cached copy of the template.
+
+✅ Fix it by removing the local template cache:
+```bash
+rm -rf ~/.cookiecutters/template-python
+```
+Then retry:
+```bash
+cookiecutter gh:NIH-NLM/template-python --output-dir=.
+```
 
 ## 📦 Features
 - Typer-based CLI
@@ -68,6 +82,7 @@ gh api \
 ```
 
 ## Example Projects Using This Template
+- [`scsilhouette`](https://github.com/NIH-NLM/scsilhouette)
 - [`nsforest-cli`](https://github.com/NIH-NLM/nsforest-cli)
 
 ---
