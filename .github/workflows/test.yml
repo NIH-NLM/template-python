@@ -1,14 +1,21 @@
 # .github/workflows/test.yml
 name: Test
 on: [push, pull_request]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: conda-incubator/setup-miniconda@v2
-        with:
-          environment-file: environment.yml
-          activate-environment: "{{cookiecutter.package_slug}}"
-      - run: pytest tests/
 
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-activate-base: false
+
+      - name: Create and activate environment
+        shell: "bash -l {0}"
+        run: |
+          conda env create -f environment.yml
+          conda activate "{{cookiecutter.package_slug}}"
+          pytest tests/
