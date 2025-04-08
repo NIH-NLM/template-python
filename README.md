@@ -142,9 +142,9 @@ Next, we need to **init** and **commit** this repository to this new repository 
 This involves initializing the directory as a GitHub repository, making an initial commit statement and pushing its content onto GitHub:
 ```bash
 git init
-git remote add origin https://github.com/NIH-NLM/template-python.git
+git remote add origin https://github.com/NIH-NLM/nsforest-cli.git
 git add .
-git commit -m "Initial scaffold: template-python"
+git commit -m "Initial commit of the template built nsforest-cli"
 git branch -M main
 git push -u origin main
 ```
