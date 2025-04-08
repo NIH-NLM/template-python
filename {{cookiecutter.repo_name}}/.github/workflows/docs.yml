@@ -54,7 +54,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: "{{cookiecutter.render_url}}"
+      url: "https://nih-nlm.github.io/{{cookiecutter.repo_name}}"
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
