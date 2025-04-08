@@ -149,58 +149,33 @@ git branch -M main
 git push -u origin main
 ```
 
-### 🛠 Cookiecutter Troubleshooting
-If you see this error:
-```
-JSON decoding error while loading '/Users/.../.cookiecutters/template-python/cookiecutter.json'
-```
-You likely have a corrupted cached copy of the template.
-
-✅ Fix it by removing the local template cache:
-```bash
-rm -rf ~/.cookiecutters/template-python
-```
-Then retry:
-```bash
-cookiecutter gh:NIH-NLM/template-python --output-dir=.
-```
-
-## 📦 Features
-- Typer-based CLI
-- Dockerized
-- Sphinx auto docs
-- GitHub Actions CI (tests, docs, Docker)
-- Pytest + Conda
-- GitHub Container Registry (GHCR) integration
-
-## ⚠️ Important: Do Not Run CI from This Template Repo
-This repository contains unrendered `{{ cookiecutter.* }}` placeholders.
-GitHub Actions **will fail** if triggered directly.
-
-✅ **Always render first** using Cookiecutter.
-
 ---
 
+## 🔧 Post-Directory Setup Instructions
+
+After you render and push your new repository (e.g., `nsforest-cli`) to GitHub:
+
+1. **Make the repository public**  
+   - Go to your GitHub repo → `Settings` → `General`
+   - Scroll to “Danger Zone” → click **Change visibility** → set to **Public**
+
+2. **Enable GitHub Pages**  
+   - Go to `Settings` → `Pages`
+   - Under "Source", select:  
+     `Deploy from a branch` → `gh-pages`  
+   - Click **Save**
+
+3. **Access your published docs at:**
+
+   ```bash
+   https://nih-nlm.github.io/{{cookiecutter.repo_name}}
+   ```
 ## 🐳 GitHub Container Registry (GHCR)
 This template includes a workflow to automatically build and publish Docker images to [GitHub Container Registry (GHCR)](https://github.com/features/packages).
 
 ### 🛠 GHCR Docker Image Publishing
 - Image is built and pushed on commits to `main`
 - Image URL format: `ghcr.io/OWNER/REPO:latest`
-
-### 🔐 To make image public (optional):
-```bash
-gh api \
-  -X PATCH \
-  -H "Accept: application/vnd.github.v3+json" \
-  /user/packages/container/{{ cookiecutter.package_slug }}/visibility \
-  -f visibility=public
-```
-
-## Example Projects Using This Template
-- [`nsforest-cli`](https://github.com/NIH-NLM/nsforest-cli)
-
----
 
 ## 🛠 Template Design and Publication
 This repository structure was designed by NIH developers for modular bioinformatics workflows.
