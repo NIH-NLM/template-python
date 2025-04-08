@@ -1,7 +1,12 @@
 # environment.yml
 name: {{cookiecutter.package_slug}}
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
 dependencies:
   - python={{cookiecutter.python_version}}
+  - pytest
   - pip
   - pip:
       - -e .
