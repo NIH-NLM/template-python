@@ -124,8 +124,18 @@ First we need to **create** the repository.   For our **nsforest-cli** example t
 ```bash
 gh repo create NIH-NLM/nsforest-cli --internal \
   --description "NSForest CLI for use by man and by machine (aka workflow languages such as Nextflow)" \
-  --homepage "https://github.com/NIH-NLM/nsforest-cli" \
+  --homepage "https://github.com/NIH-NLM/nsforest-cli"
 ```
+
+Running this command we see the following response:
+```bash
+gh repo create NIH-NLM/nsforest-cli --internal \
+  --description "NSForest CLI for use by man and by machine (aka workflow languages such as Nextflow)" \
+  --homepage "https://github.com/NIH-NLM/nsforest-cli"  
+✓ Created repository NIH-NLM/nsforest-cli on GitHub
+  https://github.com/NIH-NLM/nsforest-cli
+```
+Confirming we have created the repository on GitHub.
 
 Next, we need to **init** and **commit** this repository to this new repository and **push** the results.
 
