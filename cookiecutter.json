@@ -5,6 +5,6 @@
     "author": "NIH/NLM",
     "email": " your email ",
     "python_version": "3.11",
-    "render_url": "${{steps.deployment.outputs.page_url}}"
+    "render_url": "{% raw %}${{ steps.deployment.outputs.page_url }}{% endraw %}"
 }
 
