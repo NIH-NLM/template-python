@@ -16,7 +16,7 @@ These are all the steps followed to make the **`nsforest-cli`** repository with 
 
 In this example, we begin at the root directory below which the new templated repository will be created.
 
-3. **Render the template into this directory**:
+**Render the template into this directory**:
 ```bash
 cookiecutter gh:NIH-NLM/template-python --output-dir=.
 ```
@@ -57,7 +57,7 @@ delete and re-download it? [y/n] (y): y
   [1/7] project_name (Example Bioinfo Tool): NSForest CLI
   [2/7] repo_name (example-tool): nsforest-cli
   [3/7] package_slug (exampletool): nsforest
-  [4/7] author (NIH/NLM): NIH/NLM Anne Deslattes Mays
+  [4/7] author (NIH/NLM): NIH/NLM
   [5/7] email ( your email ): adeslat@scitechcon.org
   [6/7] python_version (3.11): 
   [7/7] render_url (${{ steps.deployment.outputs.page_url }}): 
@@ -66,29 +66,58 @@ delete and re-download it? [y/n] (y): y
 This creates the directory where we said to make it and now if you inspect you will find it is there: 
 
 ```bash
-ls -l nsforest-cli
+ls -la nsforest-cli
 ```
 Populated with the values and ready to begin to be tested and made complete before making a Nextflow workflow.
 
 ```bash
-ls -l nsforest-cli 
-total 40
--rw-r--r--@ 1 adeslatt  staff  277 Apr  8 11:09 Dockerfile
--rw-r--r--@ 1 adeslatt  staff  635 Apr  8 11:09 README.md
-drwxr-xr-x@ 4 adeslatt  staff  128 Apr  8 11:09 docs
--rw-r--r--@ 1 adeslatt  staff   94 Apr  8 11:09 environment.yml
--rw-r--r--@ 1 adeslatt  staff  108 Apr  8 11:09 pyproject.toml
--rw-r--r--@ 1 adeslatt  staff  519 Apr  8 11:09 setup.cfg
-drwxr-xr-x@ 3 adeslatt  staff   96 Apr  8 11:09 src
+ls -la
+total 48
+drwxr-xr-x@  11 adeslatt  staff   352 Apr  8 12:23 .
+drwxr-xr-x@ 111 adeslatt  staff  3552 Apr  8 12:23 ..
+drwxr-xr-x@   3 adeslatt  staff    96 Apr  8 12:23 .github
+-rw-r--r--@   1 adeslatt  staff   138 Apr  8 12:23 .readthedocs.yaml
+-rw-r--r--@   1 adeslatt  staff   277 Apr  8 12:23 Dockerfile
+-rw-r--r--@   1 adeslatt  staff   615 Apr  8 12:23 README.md
+drwxr-xr-x@   5 adeslatt  staff   160 Apr  8 12:23 docs
+-rw-r--r--@   1 adeslatt  staff   157 Apr  8 12:23 environment.yml
+-rw-r--r--@   1 adeslatt  staff   108 Apr  8 12:23 pyproject.toml
+-rw-r--r--@   1 adeslatt  staff   489 Apr  8 12:23 setup.cfg
+drwxr-xr-x@   3 adeslatt  staff    96 Apr  8 12:23 src
 ```
 
-It is here on our local computer, but it is **not yet** in GitHub.
-So, now we need to create this repository and push these contents to that repository in 3 steps:
+Running **tree** we see the directory structure created by the template
+
+```bash
+ tree 
+.
+├── Dockerfile
+├── README.md
+├── docs
+│   ├── Makefile
+│   ├── conf.py
+│   └── index.rst
+├── environment.yml
+├── pyproject.toml
+├── setup.cfg
+└── src
+    └── nsforest
+        ├── __init__.py
+        └── cli.py
+
+4 directories, 10 files
+```
+
+Four directories and 10 files automatically set up for you in a shared structured format that will allow ease of integration and use as well as documentation template for us to follow.
+
+Note, the files are here on our local computer, but it is **not yet** in GitHub.
+So, now we need to create this repository and push these contents to that repository in 4 steps:
 * Create
 * Commit
+* Init
 * Push
-  
-5. **Create, commit and then push the result**:
+
+**Create, commit, init and then push the result**:
 
 First we need to **create** the repository.   For our **nsforest-cli** example this is what we did.
 
@@ -98,7 +127,7 @@ gh repo create NIH-NLM/nsforest-cli --internal \
   --homepage "https://github.com/NIH-NLM/nsforest-cli" \
 ```
 
-Next, we need to commit this repository and push the results.
+Next, we need to **init** and **commit** this repository to this new repository and **push** the results.
 
 This involves initializing the directory as a GitHub repository, making an initial commit statement and pushing its content onto GitHub:
 ```bash
