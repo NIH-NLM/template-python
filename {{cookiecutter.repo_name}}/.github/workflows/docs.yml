@@ -18,6 +18,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,7 +35,7 @@ jobs:
           conda activate "{{cookiecutter.package_slug}}"
           python -m pip install myst-parser sphinx
 
-      - name: Build HTML docs with Sphinx
+      - name: Generate Sphinx docs
         shell: "bash -l {0}"
         run: |
           conda activate "{{cookiecutter.package_slug}}"
@@ -53,7 +54,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{cookiecutter.render_url}}
+      url: "{{cookiecutter.render_url}}"
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
