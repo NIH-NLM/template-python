@@ -1,6 +1,6 @@
 # docs/index.rst
-Welcome to {{cookiecutter.package_slug}}'s documentation!
-=============================================
+# Welcome to {{cookiecutter.package_slug}}'s documentation!
+# =============================================
 
 .. toctree::
    :maxdepth: 2
