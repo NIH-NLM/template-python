@@ -2,14 +2,14 @@ A bioinformatics Python package scaffold for reproducible science.
 
 The idea here is to make a tool, such as [NSForest](https://github.com/JCVenterInstitute/NSForest), accessible through a **`command-line`** interface and thereby making it accessible to a workflow language such as [Nextflow](https://www.nextflow.io/).
 
-## 🚀 Quickstart
+## Quickstart
 Render a new Python project with a command-line interface (CLI) + continuous integration with GitHub actions (CI) + documentation by Sphinx:
 
 ```bash
 cookiecutter gh:NIH-NLM/template-python --output-dir=.
 ```
 
-### ✅ NIH-NLM Example with [NSForest](https://github.com/JCVenterInstitute/NSForest)
+### NIH-NLM Example with [NSForest](https://github.com/JCVenterInstitute/NSForest)
 
 As an example of how to use this repository consider these steps.
 These are all the steps followed to make the **`nsforest-cli`** repository with this template-python
@@ -170,14 +170,14 @@ After you render and push your new repository (e.g., `nsforest-cli`) to GitHub:
    ```bash
    https://nih-nlm.github.io/{{cookiecutter.repo_name}}
    ```
-## 🐳 GitHub Container Registry (GHCR)
+## GitHub Container Registry (GHCR)
 This template includes a workflow to automatically build and publish Docker images to [GitHub Container Registry (GHCR)](https://github.com/features/packages).
 
-### 🛠 GHCR Docker Image Publishing
+### GHCR Docker Image Publishing
 - Image is built and pushed on commits to `main`
 - Image URL format: `ghcr.io/OWNER/REPO:latest`
 
-## 🛠 Template Design and Publication
+## Template Design and Publication
 This repository structure was designed by NIH developers for modular bioinformatics workflows.
 The template was scaffolded with the assistance of ChatGPT Code Copilot.
 
