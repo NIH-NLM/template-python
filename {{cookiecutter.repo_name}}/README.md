@@ -4,7 +4,7 @@ A command-line bioinformatics tool scaffolded using [template-python](https://gi
 
 ---
 
-## 🛠 Features
+## Features
 
 - Python {{cookiecutter.python_version}}
 - Typer-powered CLI
@@ -14,7 +14,7 @@ A command-line bioinformatics tool scaffolded using [template-python](https://gi
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Install via Conda or use Docker:
 
@@ -28,7 +28,7 @@ docker run -it {{cookiecutter.package_slug}}
 
 ---
 
-## 💡 CLI Usage
+## CLI Usage
 
 ```bash
 {{cookiecutter.package_slug}} --help
@@ -36,7 +36,7 @@ docker run -it {{cookiecutter.package_slug}}
 
 ---
 
-## 🧪 Run Tests
+## Run Tests
 
 ```bash
 pytest tests/
@@ -44,7 +44,7 @@ pytest tests/
 
 ---
 
-## 📄 License
+## License
 
 MIT License © {{cookiecutter.author}}
 
