@@ -151,7 +151,7 @@ git push -u origin main
 
 ---
 
-## 🔧 Post-Directory Setup Instructions
+## Post-Directory Setup Instructions
 
 After you render and push your new repository (e.g., `nsforest-cli`) to GitHub:
 
@@ -181,5 +181,4 @@ This template includes a workflow to automatically build and publish Docker imag
 This repository structure was designed by NIH developers for modular bioinformatics workflows.
 The template was scaffolded with the assistance of ChatGPT Code Copilot.
 
-MIT License © National Library of Medicine
 
