@@ -45,7 +45,7 @@ Looking at the existing issues is a great way to find something to contribute on
 
 
 ## Code of Conduct
-This project has adopted the [Code of Conduct](https://github.com/NIH-NLM/template-python/code-of-conduct.md).
+This project has adopted the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Security issue notifications
 If you discover a potential security issue in this project we ask that you notify us through the issue tracker
